@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Enter Your Portfolio Details</h2>
+  <form id="portfolioForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="text" id="role" placeholder="Your Role" required />
+    <textarea id="bio" placeholder="Short Bio"></textarea>
+    <input type="text" id="skills" placeholder="Skills (comma separated)" />
+    <input type="text" id="projects" placeholder="Project Links (comma separated)" />
+    <button type="submit">Generate Portfolio</button>
+  </form>
+
+  <script>
+    document.getElementById("portfolioForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const userData = {
+        name: document.getElementById("name").value,
+        role: document.getElementById("role").value,
+        bio: document.getElementById("bio").value,
+        skills: document.getElementById("skills").value.split(","),
+        projects: document.getElementById("projects").value.split(","),
+        template: localStorage.getItem("selectedTemplate"),
+      };
+      localStorage.setItem("portfolioData", JSON.stringify(userData));
+      window.location.href = "portfolio.html";
+    });
+  </script>
+</body>
+</html>

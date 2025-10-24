@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Template</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h2>Select Your Portfolio Template</h2>
+  </header>
+
+  <div class="template-container">
+    <div class="template-card" onclick="selectTemplate('modern')">
+      <h3>Modern Template</h3>
+      <p>Clean and professional layout</p>
+    </div>
+    <div class="template-card" onclick="selectTemplate('minimal')">
+      <h3>Minimal Template</h3>
+      <p>Simple and elegant design</p>
+    </div>
+  </div>
+
+  <script>
+    function selectTemplate(templateName) {
+      localStorage.setItem("selectedTemplate", templateName);
+      window.location.href = "portfolio-form.html";
+    }
+  </script>
+</body>
+</html>
